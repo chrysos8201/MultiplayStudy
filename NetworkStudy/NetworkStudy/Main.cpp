@@ -8,6 +8,8 @@
 using namespace std;
 
 #include "GameCore.h"
+#include "MemoryStream.h"
+#include "GameObject.h"
 
 std::shared_ptr<GameCore> g_GameCore;
 
@@ -20,6 +22,13 @@ void Initialize(std::string inName)
 void GameLoop()
 {
 	g_GameCore->GameLoop();
+}
+
+void SendGameObject(int inSocket, const std::shared_ptr<GameObject> inGameObject)
+{
+	OutputMemoryStream stream;
+	inGameObject->Write(stream);
+	send(inSocket, stream.GetBufferPtr(), stream.GetLength(), 0);
 }
 
 int Server()

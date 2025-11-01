@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+class OutputMemoryStream;
+
 class GameObject
 {
 public:
@@ -16,6 +18,8 @@ public:
 	{
 		std::cout << "Name : " << mName << ", Count : " << mCount << '\n';
 	}
+
+	void Write(OutputMemoryStream& inStream) const;
 
 private:
 	std::string mName;
