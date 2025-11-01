@@ -3,6 +3,7 @@
 #include <string>
 
 class OutputMemoryStream;
+class InputMemoryStream;
 
 class GameObject
 {
@@ -20,6 +21,7 @@ public:
 	}
 
 	void Write(OutputMemoryStream& inStream) const;
+	void Read(InputMemoryStream& inStream);
 
 private:
 	std::string mName;

@@ -42,3 +42,20 @@ void OutputMemoryStream::Free()
 		mBuffer = nullptr;
 	}
 }
+
+//---------------InputMemoryStream---------------//
+
+InputMemoryStream::InputMemoryStream(char* inBuffer, uint32 inByteCount)
+	: mCapacity(inByteCount), mHead(0)
+{
+}
+
+InputMemoryStream::~InputMemoryStream()
+{
+
+}
+
+void InputMemoryStream::Read(void* outData, uint32 inByteCount)
+{
+
+}

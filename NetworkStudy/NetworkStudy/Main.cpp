@@ -7,10 +7,11 @@
 #pragma comment(lib, "ws2_32.lib")
 using namespace std;
 
+#include "Type.h"
+
 #include "GameCore.h"
 #include "MemoryStream.h"
 #include "GameObject.h"
-
 std::shared_ptr<GameCore> g_GameCore;
 
 void Initialize(std::string inName)
@@ -29,6 +30,24 @@ void SendGameObject(int inSocket, const std::shared_ptr<GameObject> inGameObject
 	OutputMemoryStream stream;
 	inGameObject->Write(stream);
 	send(inSocket, stream.GetBufferPtr(), stream.GetLength(), 0);
+}
+
+const uint32 g_MaxPacketSize = 1470;
+
+void ReceiveGameObject(int inSocket, std::shared_ptr<GameObject>& outGameObject)
+{
+	char* temporaryBuffer = new char[](g_MaxPacketSize);
+	uint64 receivedByteCount = recv(inSocket, temporaryBuffer, g_MaxPacketSize, 0);
+
+	if (receivedByteCount > 0)
+	{
+		InputMemoryStream stream(temporaryBuffer, static_cast<uint32>(receivedByteCount));
+		outGameObject->Read(stream);
+	}
+	else
+	{
+		delete[] temporaryBuffer;
+	}
 }
 
 int Server()
