@@ -22,6 +22,8 @@ public:
 	// inBuffer에 복사한 바이트의 길이를 반환한다.
 	int ReceiveFrom(void* inBuffer, int inLen, SocketAddress& outFrom);
 
+	int SetNonBlockingMode(bool inShouldBeNonBlocking);
+
 private:
 	friend class SocketUtil;
 	UDPSocket(SOCKET inSocket) : mSocket(inSocket) {}
