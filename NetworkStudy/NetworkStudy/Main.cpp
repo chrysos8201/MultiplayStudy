@@ -5,8 +5,22 @@
 #include <WS2tcpip.h>
 
 #pragma comment(lib, "ws2_32.lib")
-
 using namespace std;
+
+#include "GameCore.h"
+
+std::shared_ptr<GameCore> g_GameCore;
+
+void Initialize(std::string inName)
+{
+	g_GameCore = std::make_shared<GameCore>();
+	g_GameCore->Initialize(inName);
+}
+
+void GameLoop()
+{
+	g_GameCore->GameLoop();
+}
 
 int Server()
 {
@@ -49,6 +63,7 @@ int Server()
 
 	cout << "서버가 시작되었습니다. 클라이언트를 기다리는 중..." << endl;
 
+
 	// 클라이언트 연결 수락
 	sockaddr_in clientAddr;
 	int clientAddrSize = sizeof(clientAddr);
@@ -70,8 +85,12 @@ int Server()
 	const int bufferSize = 1024;
 	char buffer[bufferSize];
 
+	Initialize("Server");
+
 	while (true) 
 	{
+		GameLoop();
+
 		// 데이터 수신
 		int bytesReceived = recv(clientSocket, buffer, bufferSize, 0);
 		if (bytesReceived <= 0) 
@@ -99,7 +118,6 @@ int Server()
 			break;
 		}
 
-		cout << "." << '\n';
 	}
 
 	// 소켓 닫기
@@ -154,6 +172,8 @@ int Client()
 	char buffer[bufferSize];
 	string message;
 
+	Initialize("Client");
+
 	while (true) 
 	{
 		//// 사용자로부터 메시지 입력 받기
@@ -165,16 +185,17 @@ int Client()
 		//{
 		//	break;
 		//}
+		GameLoop();
 
-		if (GetAsyncKeyState('Q') & 0x8000)
-		{
-			break;
-		}
-
-		if (GetAsyncKeyState('W') & 0x8000)
-		{
-			message = 'W';
-		}
+		//if (GetAsyncKeyState('Q') & 0x8000)
+		//{
+		//	break;
+		//}
+		//
+		//if (GetAsyncKeyState('W') & 0x8000)
+		//{
+		//	message = 'W';
+		//}
 
 		if (message != "")
 		{
@@ -211,6 +232,7 @@ int Client()
 
 	return 0;
 }
+
 
 int main() {
 
