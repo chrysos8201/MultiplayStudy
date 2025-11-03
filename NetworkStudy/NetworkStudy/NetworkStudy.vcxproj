@@ -129,11 +129,22 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
+    <ClCompile Include="SocketAddress.cpp" />
+    <ClCompile Include="SocketAddressFactory.cpp" />
+    <ClCompile Include="SocketUtil.cpp" />
+    <ClCompile Include="StringUtils.cpp" />
+    <ClCompile Include="TCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core.h" />
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="MemoryStream.h" />
+    <ClInclude Include="SocketAddress.h" />
+    <ClInclude Include="SocketAddressFactory.h" />
+    <ClInclude Include="SocketUtil.h" />
+    <ClInclude Include="StringUtils.h" />
+    <ClInclude Include="TCPSocket.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

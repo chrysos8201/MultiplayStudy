@@ -17,4 +17,11 @@ void GameCore::GameLoop()
 	{
 		mGameObject->SayInfo();
 	}
+	if (GetAsyncKeyState('E') & 0x8000)
+	{
+		if (mGameObject->GetName() == "Client")
+		{
+			//mGameObject
+		}
+	}
 }

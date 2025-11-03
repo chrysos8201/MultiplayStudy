@@ -5,7 +5,7 @@ OutputMemoryStream::OutputMemoryStream()
 	, mHead(0)
 	, mCapacity(0)
 {
-
+	ReallocBuffer(32);
 }
 
 OutputMemoryStream::~OutputMemoryStream()
@@ -46,16 +46,21 @@ void OutputMemoryStream::Free()
 //---------------InputMemoryStream---------------//
 
 InputMemoryStream::InputMemoryStream(char* inBuffer, uint32 inByteCount)
-	: mCapacity(inByteCount), mHead(0)
+	: mBuffer(inBuffer), mCapacity(inByteCount), mHead(0)
 {
 }
 
 InputMemoryStream::~InputMemoryStream()
 {
-
+	if (mBuffer)
+	{
+		delete[] mBuffer;
+		mBuffer = nullptr;
+	}
 }
 
 void InputMemoryStream::Read(void* outData, uint32 inByteCount)
 {
-
+	memcpy(outData, mBuffer + mHead, sizeof(inByteCount));
+	mHead += inByteCount;
 }

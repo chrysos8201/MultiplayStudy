@@ -12,32 +12,45 @@
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="GameCore.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MemoryStream.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPSocket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
     <ClCompile Include="SocketAddress.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="SocketAddressFactory.cpp">
+    <ClCompile Include="SocketAddressFactory.cpp" />
+    <ClCompile Include="SocketUtil.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="UDPSocket.cpp">
+    <ClCompile Include="StringUtils.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="SocketUtil.cpp" />
-    <ClCompile Include="StringUtils.cpp" />
-    <ClCompile Include="TCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameCore.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Type.h" />
+    <ClInclude Include="MemoryStream.h">
+      <Filter>Network</Filter>
+    </ClInclude>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="TCPSocket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
     <ClInclude Include="SocketAddress.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="SocketAddressFactory.h">
+    <ClInclude Include="SocketAddressFactory.h" />
+    <ClInclude Include="SocketUtil.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="UDPSocket.h">
+    <ClInclude Include="StringUtils.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="SocketUtil.h" />
-    <ClInclude Include="StringUtils.h" />
-    <ClInclude Include="TCPSocket.h" />
   </ItemGroup>
 </Project>

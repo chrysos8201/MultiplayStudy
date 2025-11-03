@@ -11,7 +11,13 @@ public:
 	GameObject() : mName(), mCount(0) {}
 	GameObject(std::string inName) : mName(inName), mCount(0) {}
 
-	void AddCount() { mCount++; }
+	std::string GetName() { return mName; }
+
+	void AddCount() 
+	{
+		std::cout << mName << ": AddCount(), Result : " << mCount << '\n';
+		mCount++; 
+	}
 	void SayName() { std::cout << mName << '\n'; }
 	void SayCount() { std::cout << mCount << '\n'; }
 
