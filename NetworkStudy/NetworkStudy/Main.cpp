@@ -153,24 +153,24 @@ int Client2()
 	int count = 10;
 	while (1)
 	{
-		OutputMemoryStream stream;
-		stream.Write(count);
-		clientSocket->Send(stream.GetBufferPtr(), stream.GetLength());
-		cout << "송신 : " << count << '\n';
-		count++;
-
-		// 응답 수신
-		char* tempBuffer = new char[1024 + 1];
-		int receivedCount = clientSocket->Receive(tempBuffer, 1024);
-		if (receivedCount > 0)
+		if (GetAsyncKeyState('W') & 0x8000)
 		{
-			tempBuffer[receivedCount] = '\0';
+			OutputMemoryStream ostream;
+			ostream.Write(count);
+			clientSocket->Send(ostream.GetBufferPtr(), ostream.GetLength());
+			cout << "송신 : " << count << '\n';
+			count++;
 
-			InputMemoryStream stream(tempBuffer, uint32(receivedCount));
-			stream.Read(tempBuffer, receivedCount);
-			cout << tempBuffer << '\n';
+			// 응답 수신
+			char* tempBuffer = new char[1024];
+			int receivedCount = clientSocket->Receive(tempBuffer, 1024);
+			if (receivedCount > 0)
+			{
+				tempBuffer[receivedCount] = '\0';
+				cout << tempBuffer << '\n';
+			}
+			delete[] tempBuffer;
 		}
-		delete[] tempBuffer;
 	}
 }
 

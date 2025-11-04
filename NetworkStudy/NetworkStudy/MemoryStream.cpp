@@ -10,7 +10,8 @@ OutputMemoryStream::OutputMemoryStream()
 
 OutputMemoryStream::~OutputMemoryStream()
 {
-	Free();
+	std::free(mBuffer);
+	//Free();
 }
 
 void OutputMemoryStream::Write(const void* inData, uint64 inByteCount)
@@ -24,7 +25,8 @@ void OutputMemoryStream::Write(const void* inData, uint64 inByteCount)
 
 void OutputMemoryStream::ReallocBuffer(uint32 inNewLength)
 {
-	char* newBuffer = new char[](inNewLength);
+	//char* newBuffer = new char[](inNewLength);
+	char* newBuffer = static_cast<char*>(std::realloc(mBuffer, inNewLength));
 	if (mBuffer)
 	{
 		memcpy(newBuffer, mBuffer, mCapacity);
@@ -52,15 +54,15 @@ InputMemoryStream::InputMemoryStream(char* inBuffer, uint32 inByteCount)
 
 InputMemoryStream::~InputMemoryStream()
 {
-	if (mBuffer)
-	{
-		delete[] mBuffer;
-		mBuffer = nullptr;
-	}
+	//if (mBuffer)
+	//{
+	//	delete[] mBuffer;
+	//	mBuffer = nullptr;
+	//}
 }
 
 void InputMemoryStream::Read(void* outData, uint32 inByteCount)
 {
-	memcpy(outData, mBuffer + mHead, sizeof(inByteCount));
+	memcpy(outData, mBuffer + mHead, inByteCount);
 	mHead += inByteCount;
 }

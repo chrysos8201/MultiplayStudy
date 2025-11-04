@@ -134,6 +134,7 @@
     <ClCompile Include="SocketUtil.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h" />

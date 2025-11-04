@@ -30,6 +30,9 @@
     <ClCompile Include="StringUtils.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCore.h" />
