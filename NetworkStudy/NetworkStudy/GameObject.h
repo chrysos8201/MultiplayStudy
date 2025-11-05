@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "GameCore.h"
 
 class OutputMemoryStream;
 class InputMemoryStream;
@@ -8,29 +9,18 @@ class InputMemoryStream;
 class GameObject
 {
 public:
-	GameObject() : mName(), mCount(0) {}
-	GameObject(std::string inName) : mName(inName), mCount(0) {}
-
-	std::string GetName() { return mName; }
-
-	void AddCount() 
-	{
-		std::cout << mName << ": AddCount(), Result : " << mCount << '\n';
-		mCount++; 
-	}
-	void SayName() { std::cout << mName << '\n'; }
-	void SayCount() { std::cout << mCount << '\n'; }
-
-	void SayInfo() 
-	{
-		std::cout << "Name : " << mName << ", Count : " << mCount << '\n';
-	}
-
-	void Write(OutputMemoryStream& inStream) const;
-	void Read(InputMemoryStream& inStream);
+	CLASS_IDENTIFICATION('GOBJ', GameObject)
 
 private:
-	std::string mName;
-	int mCount;
 };
 
+class Player : public GameObject
+{
+public:
+	CLASS_IDENTIFICATION('PLER', Player);
+	void Write(OutputMemoryStream& inStream) const;
+
+private:
+	float mY;
+	float mX;
+};

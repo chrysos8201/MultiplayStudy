@@ -10,8 +10,7 @@ OutputMemoryStream::OutputMemoryStream()
 
 OutputMemoryStream::~OutputMemoryStream()
 {
-	std::free(mBuffer);
-	//Free();
+	Free();
 }
 
 void OutputMemoryStream::Write(const void* inData, uint64 inByteCount)
@@ -40,7 +39,8 @@ void OutputMemoryStream::Free()
 {
 	if (mBuffer)
 	{
-		delete[] mBuffer;
+		//delete[] mBuffer;
+		std::free(mBuffer);
 		mBuffer = nullptr;
 	}
 }

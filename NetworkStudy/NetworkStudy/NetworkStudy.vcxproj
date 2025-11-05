@@ -125,9 +125,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GameCore.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameProcess.cpp" />
+    <ClCompile Include="LinkingContext.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MemoryStream.cpp" />
     <ClCompile Include="SocketAddress.cpp" />
@@ -142,7 +142,9 @@
     <ClInclude Include="GameCore.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameProcess.h" />
+    <ClInclude Include="LinkingContext.h" />
     <ClInclude Include="MemoryStream.h" />
+    <ClInclude Include="NetworkCore.h" />
     <ClInclude Include="SocketAddress.h" />
     <ClInclude Include="SocketAddressFactory.h" />
     <ClInclude Include="SocketUtil.h" />

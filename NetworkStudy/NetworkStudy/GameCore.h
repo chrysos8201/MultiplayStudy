@@ -1,16 +1,7 @@
 #pragma once
-#include <memory>
-#include <string>
+#include "Type.h"
 
-class GameObject;
-
-class GameCore
-{
-public:
-	void Initialize(std::string inName);
-	void GameLoop();
-
-private:
-	std::shared_ptr<GameObject> mGameObject;
-};
-
+#define CLASS_IDENTIFICATION(inCode, inClass)\
+enum {kClassId = inCode}; \
+virtual uint32 GetClassId() const {return kClassId;} \
+static GameObject* CreateInstance() {return new inClass(); }
