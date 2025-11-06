@@ -12,7 +12,7 @@ public:
 	void AddGameObject(std::shared_ptr<GameObject> inGameObject, uint32 inNetworkId);
 	void RemoveGameObject(std::shared_ptr<GameObject> inGameObject);
 
-	std::shared_ptr<GameObject> GetGameObject(uint32 inNetwrokId);
+	std::shared_ptr<GameObject> GetGameObject(uint32 inNetworkId);
 
 private:
 	std::unordered_map<uint32, std::shared_ptr<GameObject>> mNetworkIdToGameObjectMap;

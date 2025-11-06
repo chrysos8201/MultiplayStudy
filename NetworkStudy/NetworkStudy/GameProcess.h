@@ -1,6 +1,8 @@
 #pragma once
 #include "Core.h"
 
+class LinkingContext;
+
 class GameProcess
 {
 public:
@@ -19,5 +21,10 @@ private:
 	HBITMAP mHOldBitmap;	// mHMemdc에 원래 선택되어 있던 비트맵
 	RECT    mRect;			// 클라이언트 영역 크기
 	HBRUSH  mHBackgroundBrush; // 배경색을 칠할 브러시
+
+private:
+	std::shared_ptr<LinkingContext> mLinkingContext;
+	uint32 networkId0;
+	uint32 networkId1;
 };
 

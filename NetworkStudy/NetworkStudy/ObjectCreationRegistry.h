@@ -2,7 +2,7 @@
 #include "Core.h"
 #include "GameObject.h"
 
-using GameObjectCreationFunc = GameObject* (*)();
+using GameObjectCreationFunc = std::shared_ptr<GameObject> (*)();
 
 class ObjectCreationRegistry
 {
@@ -22,10 +22,10 @@ public:
 		mNameToGameObjectCreationFunctionMap[T::kClassId] = T::CreateInstance;
 	}
 
-	GameObject* CreateGameObject(uint32 inClassId)
+	std::shared_ptr<GameObject> CreateGameObject(uint32 inClassId)
 	{
 		GameObjectCreationFunc creationFunc = mNameToGameObjectCreationFunctionMap[inClassId];
-		GameObject* gameObject = creationFunc();
+		std::shared_ptr<GameObject> gameObject = creationFunc();
 		return gameObject;
 	}
 
