@@ -1,5 +1,12 @@
 #include "GameProcess.h"
 #include <string>
+#include "ObjectCreationRegistry.h"
+
+void RegisterRegistry()
+{
+	ObjectCreationRegistry::Get().RegisterCreationFunction<GameObject>();
+	ObjectCreationRegistry::Get().RegisterCreationFunction<Player>();
+}
 
 void GameProcess::Initialize(HWND inhWnd)
 {
@@ -20,6 +27,8 @@ void GameProcess::Initialize(HWND inhWnd)
 
 	// 4. 요청한 배경색으로 브러시 생성
 	mHBackgroundBrush = CreateSolidBrush(RGB(0,255,255));
+
+	RegisterRegistry();
 }
 
 void GameProcess::Update()

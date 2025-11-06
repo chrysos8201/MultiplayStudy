@@ -7,13 +7,14 @@
     <Filter Include="Network">
       <UniqueIdentifier>{3f7d56ee-542d-45d0-ba2d-249a344c09c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{b0c362e0-eeba-49ec-8619-d698ba712d5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="GameCore.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="MemoryStream.cpp">
       <Filter>Network</Filter>
     </ClCompile>
@@ -23,7 +24,6 @@
     <ClCompile Include="SocketAddress.cpp">
       <Filter>Network</Filter>
     </ClCompile>
-    <ClCompile Include="SocketAddressFactory.cpp" />
     <ClCompile Include="SocketUtil.cpp">
       <Filter>Network</Filter>
     </ClCompile>
@@ -31,29 +31,62 @@
       <Filter>Network</Filter>
     </ClCompile>
     <ClCompile Include="WinMain.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameProcess.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkingContext.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketAddressFactory.cpp">
       <Filter>Network</Filter>
     </ClCompile>
+    <ClCompile Include="ObjectCreationRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameCore.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Type.h" />
     <ClInclude Include="MemoryStream.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="Core.h" />
     <ClInclude Include="TCPSocket.h">
       <Filter>Network</Filter>
     </ClInclude>
     <ClInclude Include="SocketAddress.h">
       <Filter>Network</Filter>
     </ClInclude>
-    <ClInclude Include="SocketAddressFactory.h" />
     <ClInclude Include="SocketUtil.h">
       <Filter>Network</Filter>
     </ClInclude>
     <ClInclude Include="StringUtils.h">
       <Filter>Network</Filter>
     </ClInclude>
+    <ClInclude Include="GameCore.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkingContext.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkCore.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketAddressFactory.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectCreationRegistry.h" />
   </ItemGroup>
 </Project>
